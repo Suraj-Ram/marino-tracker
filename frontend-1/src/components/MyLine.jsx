@@ -20,10 +20,11 @@ export default function MyLine() {
 
   useEffect(() => { 
     const getData = async () => {
-        const url = API_BASE_URL + "?date=2022-10-28";
+        // const url = API_BASE_URL + "?date=2022-10-28";
+        const url = API_BASE_URL + "?date=2022-10-10T04:00:00"
         const f = await fetch(url) 
         const r = await f.json()
-        console.log(r)
+        console.table(r)
         setData(r)
     }
 

@@ -57,7 +57,10 @@ const myFunc1 = functions.https.onRequest((req, res) => {
 
       let cleanDataRow = {};
       cleanDataRow["idx"] = rowIdx;
-      cleanDataRow["date"] = dateObj.toDateString();
+      cleanDataRow["date_utc"] = dateObj.toDateString();
+      cleanDataRow["date_eastern"] = dateObj.toLocaleDateString("en-US", {
+        timeZone: "America/New_York",
+      })
       cleanDataRow["time_utc"] = dateObj.toTimeString();
       cleanDataRow["time_eastern"] = dateObj.toLocaleTimeString("en-US", {
         timeZone: "America/New_York",
