@@ -24,6 +24,8 @@ import Orders from "./Orders";
 import CountDisplay from "../components/CountDisplay";
 
 import { liveCounts } from "../PlaceholderData";
+import { MenuItem, Select } from "@mui/material";
+import RoomCapacityChartWrapper from "../components/RoomCapacityChartWrapper";
 
 const drawerWidth = 240;
 
@@ -108,8 +110,15 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              Marino Tracker
+              {/* TODO: Pick conditionally based on route */}
+              Recreation Tracker | Marino Center
+              {/* Recreation Tracker | SquashBusters */}
             </Typography>
+            <Select label="Center" value={"Marino Center"} onChange={() => console.log("changed")}>
+              {/* TODO: Make this change the routes. Squash is another dashboard altogether */}
+              <MenuItem value="Marino Center">Marino Center</MenuItem>
+              <MenuItem value="SquashBusters">SquashBusters</MenuItem>
+            </Select>
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -152,15 +161,19 @@ function DashboardContent() {
               <Grid item>
                 <Grid container spacing={2}>
                   {liveCounts.map((itemProps) => (
-                    <Grid item item xs={12} md={4} lg={3}>
+                    <Grid item xs={12} md={4} lg={3}s>
                       <CountDisplay {...itemProps} />
                     </Grid>
                   ))}
                 </Grid>
               </Grid>
 
+              <Grid item xs={12}>
+                <RoomCapacityChartWrapper/>
+              </Grid>
+
               {/* Chart */}
-              <Grid item xs={12} md={8} lg={9}>
+              {/* <Grid item xs={12} md={8} lg={9}>
                 <Paper
                   sx={{
                     p: 2,
@@ -171,7 +184,7 @@ function DashboardContent() {
                 >
                   <Chart />
                 </Paper>
-              </Grid>
+              </Grid> */}
             </Grid>
           </Container>
         </Box>

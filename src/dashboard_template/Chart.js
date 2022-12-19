@@ -5,7 +5,7 @@ import Title from './Title';
 
 // Generate Sales Data
 function createData(time, amount) {
-  return { time, amount };
+  return { time: time, amount: (amount * Math.random()) };
 }
 
 const data = [

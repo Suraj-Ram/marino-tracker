@@ -32,4 +32,22 @@ const liveCounts = [
 
 ]
 
-export {liveCounts}
+const marinoRooms = [
+    "2nd Floor",
+    "Gymnasium",
+    "Weight Room",
+    "Cardio",
+    "Track"
+]
+
+const marinoRoomsEnum = {
+    secondFloor: "2nd Floor",
+    gym: "Gymnasium",
+    weightRoom: "Weight Room",
+    cardio: "Cardio",
+    track: "Track"
+}
+
+
+
+export {liveCounts, marinoRooms, marinoRoomsEnum}
