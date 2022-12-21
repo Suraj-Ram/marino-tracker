@@ -8,18 +8,22 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import Dashboard from "./dashboard_template/Dashboard";
+import MarinoToday from "./pages/MarinoToday";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const mdTheme = createTheme();
 
 root.render(
   <React.StrictMode>
     {/* <App /> */}
-
+    <ThemeProvider theme={mdTheme}>
     <BrowserRouter>
     <Routes>
-      <Route path="/marino" element={<>Marino stub <Outlet/> </>}>
-        <Route path="today" element={"marino today view"} />
+      <Route path="/marino" element={<Dashboard mainContent={<Outlet/>} />}>
+        <Route path="today" element={<MarinoToday/>} />
         <Route path="historical" element={"marino hist view"} />
       </Route>
       <Route path="/squash" element={<>Squash stub <Outlet/> </>}>
@@ -30,6 +34,7 @@ root.render(
     </Routes>
     
     </BrowserRouter>
+    </ThemeProvider>
 
 
 
