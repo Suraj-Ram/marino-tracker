@@ -1,12 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./index.css";
 import {
-  BrowserRouter,
-  Outlet,
-  Route,
-  Routes,
+  BrowserRouter, Route,
+  Routes
 } from "react-router-dom";
+import "./index.css";
 import NewSimpleLayout from "./pages/NewSimpleLayout";
 
 

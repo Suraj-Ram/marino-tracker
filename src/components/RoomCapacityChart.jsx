@@ -1,5 +1,4 @@
-import { LineChart, Line, Area, XAxis, YAxis, Label, ResponsiveContainer, CartesianGrid, AreaChart } from 'recharts';
-import { rawDatData } from '../rawDayData';
+import { Area, AreaChart, CartesianGrid, Label, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
 function RoomCapacityChart({ data }) {
 

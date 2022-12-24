@@ -40,15 +40,6 @@ const marinoRooms = [
     "Track"
 ]
 
-const marinoRoomsEnumOld = {
-    secondFloor: "2nd Floor",
-    gym: "Gymnasium",
-    weightRoom: "Weight Room",
-    cardio: "Cardio",
-    track: "Track"
-}
-
-
 const marinoRoomsEnum = {
     secondFloor: {
         displayName: "2nd Floor",

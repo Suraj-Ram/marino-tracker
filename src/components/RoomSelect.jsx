@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Listbox } from "@headlessui/react";
-import { ChevronUpDownIcon, CheckIcon } from "@heroicons/react/20/solid";
-import {marinoRoomsEnum} from "../PlaceholderData"
+import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import { marinoRoomsEnum } from "../PlaceholderData";
 
 
 

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { fetchRawData, getDatapoints } from "../utils/dataFetching";
 import RoomCapacityChart from "./RoomCapacityChart";
-import { getDatapoints, fetchRawData } from "../utils/dataFetching";
 
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import RoomSelect from "./RoomSelect";
 
-import { marinoRooms, marinoRoomsEnum } from "../PlaceholderData";
+import { marinoRoomsEnum } from "../PlaceholderData";
 
 
 function MainGraphView() {
@@ -17,7 +17,7 @@ function MainGraphView() {
 
   useEffect(() => {
     getDayData(selectedDate)
-  }, []);
+  }, [selectedDate]);
 
   function getDayData(dateString) {
     // Fetching for timezone is automatically managed here 
