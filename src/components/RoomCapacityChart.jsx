@@ -1,10 +1,7 @@
-import { useTheme } from '@mui/material/styles';
-import Title from "./Title"
 import { LineChart, Line, Area, XAxis, YAxis, Label, ResponsiveContainer, CartesianGrid, AreaChart } from 'recharts';
 import { rawDatData } from '../rawDayData';
 
 function RoomCapacityChart({ data }) {
-    const theme = useTheme()
 
   return (
     <>
@@ -20,24 +17,24 @@ function RoomCapacityChart({ data }) {
         >
           <XAxis
             dataKey="time"
-            stroke={theme.palette.text.secondary}
-            style={theme.typography.body2}
+            // stroke={theme.palette.text.secondary}
+            // style={theme.typography.body2}
             interval={8}
           >
             <Label position="insideBottom"
             offset={-6}>Time</Label>
             </XAxis>
           <YAxis
-            stroke={theme.palette.text.secondary}
-            style={theme.typography.body2}
+            // stroke={theme.palette.text.secondary}
+            // style={theme.typography.body2}
           >
             <Label
               angle={270}
               position="left"
               style={{
                 textAnchor: 'middle',
-                fill: theme.palette.text.primary,
-                ...theme.typography.body1,
+                // fill: theme.palette.text.primary,
+                // ...theme.typography.body1,
               }}
             >
               Count
@@ -48,7 +45,7 @@ function RoomCapacityChart({ data }) {
             isAnimationActive={false}
             type="monotone"
             dataKey="amount"
-            stroke={theme.palette.primary.main}
+            // stroke={theme.palette.primary.main}
             // dot={false}
           />
         </AreaChart>

@@ -8,8 +8,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import RoomSelect from "./RoomSelect";
 
 import { marinoRooms, marinoRoomsEnum } from "../PlaceholderData";
-import { ConstructionOutlined } from "@mui/icons-material";
-
 
 
 function MainGraphView() {

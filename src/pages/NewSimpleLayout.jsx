@@ -1,8 +1,4 @@
-import RoomCapacityChart from "../components/RoomCapacityChart"
-import { TypographyUtils } from "@mui/material/styles/createTypography"
 import { PrimaryHeading, SecondaryHeading } from "../components/TypoUtils"
-import CountDisplay from "../components/CountDisplay"
-import MyDatePicker from "../components/MyDatePicker"
 import MainGraphView from "../components/MainGraphView"
 
 function NewSimpleLayout() {
