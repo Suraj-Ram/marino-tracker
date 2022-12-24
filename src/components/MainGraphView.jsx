@@ -8,21 +8,23 @@ import "react-datepicker/dist/react-datepicker.css";
 import RoomSelect from "./RoomSelect";
 
 import { marinoRooms, marinoRoomsEnum } from "../PlaceholderData";
+import { ConstructionOutlined } from "@mui/icons-material";
 
 
 
 function MainGraphView() {
-  // A Moment.js object that stores the selected date
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [selectedRoom, setSelectedRoom] = useState(null);
-  const [graphData, setGraphData] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedRoom, setSelectedRoom] = useState(marinoRoomsEnum.cardio.dbCountColName);
   const [rawDayData, setRawDayData] = useState([]);
 
   useEffect(() => {
-    getDayData("2022-10-1")
+    getDayData(selectedDate)
   }, []);
 
   function getDayData(dateString) {
+    // Fetching for timezone is automatically managed here 
+    // since dateString includes the user's timezone
+    console.log("Requested date for: " + dateString)
     const rd = fetchRawData(dateString)
     rd.then(setRawDayData)
   }
@@ -36,10 +38,12 @@ function MainGraphView() {
   return (
     <>
       <div className="flex flex-col justify-start justify-items-center">
+        {/* Date picker on change method needs function (String -> ___) */}
         <DatePicker
           className="border border-slate-800 rounded-md"
           selected={selectedDate}
           onChange={handleDateChange}
+          dateFormat="yyyy-mm-dd"
         />
         <RoomSelect
           selected={selectedRoom}
