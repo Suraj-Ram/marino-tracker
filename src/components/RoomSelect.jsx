@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { ChevronUpDownIcon, CheckIcon } from "@heroicons/react/20/solid";
+import {marinoRoomsEnum} from "../PlaceholderData"
+
+
 
 // const people = [
 //   { name: "Wade Cooper" },
@@ -12,8 +15,9 @@ import { ChevronUpDownIcon, CheckIcon } from "@heroicons/react/20/solid";
 // ];
 
 function RoomSelect({selected, handleSelect, options}) {
-    console.log(options)
-    options.map((opt, optIdx) => console.log(opt, optIdx))
+    // Options is of type MarinoRoomsEnum
+    // console.log(options)
+    // options.map((opt, optIdx) => console.log(opt, optIdx))    
 
   return (
     <div className="">
@@ -29,7 +33,7 @@ function RoomSelect({selected, handleSelect, options}) {
             </span>
           </Listbox.Button>
           <Listbox.Options className=" z-10 absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-            {options.map((opt, optIdx) => (
+            {Object.entries(marinoRoomsEnum).map((opt, optIdx) => (
               <Listbox.Option
                 key={optIdx}
                 className={({ active }) =>
@@ -37,7 +41,7 @@ function RoomSelect({selected, handleSelect, options}) {
                     active ? "bg-amber-100 text-amber-900" : "text-gray-900"
                   }`
                 }
-                value={opt}
+                value={opt[1].dbCountColName}
               >
                 {({ selected }) => (
                   <>
@@ -46,7 +50,7 @@ function RoomSelect({selected, handleSelect, options}) {
                         selected ? "font-medium" : "font-normal"
                       }`}
                     >
-                      {opt}
+                      {opt[1].displayName}
                     </span>
                     {selected ? (
                       <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600">

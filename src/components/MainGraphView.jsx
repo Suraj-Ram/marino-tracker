@@ -7,27 +7,31 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import RoomSelect from "./RoomSelect";
 
-import { marinoRooms } from "../PlaceholderData";
+import { marinoRooms, marinoRoomsEnum } from "../PlaceholderData";
+
+
 
 function MainGraphView() {
   // A Moment.js object that stores the selected date
   const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedRoom, setSelectedRoom] = useState(null);
   const [graphData, setGraphData] = useState([]);
-  const [selectedRoom, setSelectedRoom] = useState(marinoRooms[0]);
+  const [rawDayData, setRawDayData] = useState([]);
 
   useEffect(() => {
-    // do things!!
-    const rd = fetchRawData("2022-11-06");
-    rd.then((r) => {
-      setGraphData(getDatapoints(r, "squash_4th_floor_count"));
-    });
-
-    // rd.then(r => console.log(r))
-    // console.log(rd)
-
-    // const dPts = getDatapoints(rd, "squash_4th_floor_count")
-    // setGraphData(dPts)
+    getDayData("2022-10-1")
   }, []);
+
+  function getDayData(dateString) {
+    const rd = fetchRawData(dateString)
+    rd.then(setRawDayData)
+  }
+
+  function handleDateChange(newDate) {
+    setSelectedDate(newDate)
+    // make request to API and update graphData
+    getDayData(newDate)
+  }
 
   return (
     <>
@@ -35,16 +39,15 @@ function MainGraphView() {
         <DatePicker
           className="border border-slate-800 rounded-md"
           selected={selectedDate}
-          onChange={(date) => setSelectedDate(date)}
+          onChange={handleDateChange}
         />
         <RoomSelect
-          options={marinoRooms}
           selected={selectedRoom}
           handleSelect={setSelectedRoom}
         />
 
         <div className="h-80">
-          <RoomCapacityChart data={graphData} />
+          <RoomCapacityChart data={getDatapoints(rawDayData, selectedRoom)} />
         </div>
       </div>
     </>
