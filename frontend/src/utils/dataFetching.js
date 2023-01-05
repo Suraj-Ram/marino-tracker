@@ -1,4 +1,7 @@
+/* DEVELOPMENT */
 const API_URL = "http://localhost:5001/tracker-231c8/us-central1/test1-myFunc"
+/* PRODUCTION */
+// const API_URL = "https://us-central1-tracker-231c8.cloudfunctions.net/get-getByDate"
 
 /**
  * Returns an array of objects that HH:MM -> count as Integer, per room
