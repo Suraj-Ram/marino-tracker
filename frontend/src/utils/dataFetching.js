@@ -1,11 +1,10 @@
-const API_URL = "http://localhost:5001/tracker-231c8/us-central1/"
+const API_URL = "http://localhost:5001/tracker-231c8/us-central1/test1-myFunc"
 
 /**
  * Returns an array of objects that HH:MM -> count as Integer, per room
  * @param {} rawDatData An array of row objects from backend API
  * @param {} room a key of a room qty. identifier
  * @returns Array of objects Time in HH:MM -> Count as Integer, per room
- * TODO: make HHMM in eastern
  */
 function getDatapoints(rawDatData, room) {
   let ret = []; // has time and count fields in each element
@@ -25,7 +24,7 @@ function getDatapoints(rawDatData, room) {
  * @returns array of raw data objects
  */
 async function fetchRawData(date) {
-    const resp = await fetch(API_URL + `get-getByDate?date=${date}`)
+    const resp = await fetch(API_URL + `?date=${date}`)
     const data = await resp.json()
     return data
 }
